@@ -7,18 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A23027F82B5A998A002AEDE4 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23027F72B5A998A002AEDE4 /* Game.swift */; };
+		A23028092B5ABBB9002AEDE4 /* LootDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A23028082B5ABBB9002AEDE4 /* LootDetailView.swift */; };
 		A2CB6EC02B5A78AD00A44004 /* LootAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB6EBF2B5A78AD00A44004 /* LootAppApp.swift */; };
 		A2CB6EC22B5A78AD00A44004 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB6EC12B5A78AD00A44004 /* ContentView.swift */; };
 		A2CB6EC42B5A78AE00A44004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CB6EC32B5A78AE00A44004 /* Assets.xcassets */; };
 		A2CB6EC72B5A78AE00A44004 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CB6EC62B5A78AE00A44004 /* Preview Assets.xcassets */; };
+		A2CB6ECE2B5A7FC100A44004 /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB6ECD2B5A7FC100A44004 /* AddItemView.swift */; };
+		A2CB6ED02B5A8BCA00A44004 /* LootItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CB6ECF2B5A8BCA00A44004 /* LootItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A23027F72B5A998A002AEDE4 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		A23028082B5ABBB9002AEDE4 /* LootDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootDetailView.swift; sourceTree = "<group>"; };
 		A2CB6EBC2B5A78AD00A44004 /* LootApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LootApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CB6EBF2B5A78AD00A44004 /* LootAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootAppApp.swift; sourceTree = "<group>"; };
 		A2CB6EC12B5A78AD00A44004 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A2CB6EC32B5A78AE00A44004 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2CB6EC62B5A78AE00A44004 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		A2CB6ECD2B5A7FC100A44004 /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
+		A2CB6ECF2B5A8BCA00A44004 /* LootItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LootItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +40,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A23027F92B5AA144002AEDE4 /* Covers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Covers;
+			sourceTree = "<group>";
+		};
 		A2CB6EB32B5A78AD00A44004 = {
 			isa = PBXGroup;
 			children = (
@@ -51,10 +66,15 @@
 		A2CB6EBE2B5A78AD00A44004 /* LootApp */ = {
 			isa = PBXGroup;
 			children = (
+				A23027F92B5AA144002AEDE4 /* Covers */,
 				A2CB6EBF2B5A78AD00A44004 /* LootAppApp.swift */,
 				A2CB6EC12B5A78AD00A44004 /* ContentView.swift */,
+				A2CB6ECF2B5A8BCA00A44004 /* LootItem.swift */,
 				A2CB6EC32B5A78AE00A44004 /* Assets.xcassets */,
 				A2CB6EC52B5A78AE00A44004 /* Preview Content */,
+				A2CB6ECD2B5A7FC100A44004 /* AddItemView.swift */,
+				A23027F72B5A998A002AEDE4 /* Game.swift */,
+				A23028082B5ABBB9002AEDE4 /* LootDetailView.swift */,
 			);
 			path = LootApp;
 			sourceTree = "<group>";
@@ -138,6 +158,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2CB6EC22B5A78AD00A44004 /* ContentView.swift in Sources */,
+				A23027F82B5A998A002AEDE4 /* Game.swift in Sources */,
+				A2CB6ECE2B5A7FC100A44004 /* AddItemView.swift in Sources */,
+				A23028092B5ABBB9002AEDE4 /* LootDetailView.swift in Sources */,
+				A2CB6ED02B5A8BCA00A44004 /* LootItem.swift in Sources */,
 				A2CB6EC02B5A78AD00A44004 /* LootAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
