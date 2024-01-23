@@ -26,9 +26,13 @@ struct ContentView: View {
                         LootRow(item: item)
                     }
                 }
-                
-                
+                Section {
+                    LootGames()
+                } header: {
+                    Text("Jeux").textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                }
             }
+            
             .sheet(isPresented: $showAddItemView, content: {
                 AddItemView(showAddItemView: $showAddItemView)
                     .environmentObject(inventory)
@@ -44,12 +48,13 @@ struct ContentView: View {
                 }
             })
         }
+        
     }
 }
-        
-        
-        
-        #Preview {
-            ContentView()
-        }
-        
+
+
+
+#Preview {
+    ContentView()
+}
+

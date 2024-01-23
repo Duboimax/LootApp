@@ -17,7 +17,6 @@ struct LootDetailView: View {
                 LootDetailHeader(item: item)
                 LootDetailsContent(item: item)
             }
-            
         }
     }
     
