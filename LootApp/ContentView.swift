@@ -9,37 +9,21 @@ class Inventory: ObservableObject {
 }
 
 
+
+struct ContentView: View {
+    @ObservedObject var inventory = Inventory()
     
-    struct ContentView: View {
-        @ObservedObject var inventory = Inventory()
-        
-        @State var showAddItemView = false
-        
-        var body: some View {
-            NavigationStack {
-                List {
-                    ForEach(inventory.loot) { item in
-                        NavigationLink {
-                            LootDetailView(item: item) // On passe directement l'item à la vue
-                        } label: {
-                            HStack {
-            
-                                VStack(alignment: .leading) {
-                                    HStack {
-                                        Circle()
-                                            .fill(item.rarity.rarityColor())
-                                            .frame(width: 10, height: 10)
-                                        Text(item.name).font(.headline)
-                                        Spacer()
-                                        Text(item.type.rawValue)
-                                    }
-                                    
-                                    Text("Quantity: \(item.quantity)")
-                                    
-                                }
-                            }
-                        }
-                        
+    @State var showAddItemView = false
+    
+    var body: some View {
+        NavigationStack {
+            List {
+                
+                ForEach(inventory.loot) { item in
+                    NavigationLink {
+                        LootDetailView(item: item) // On passe directement l'item à la vue
+                    } label: {
+                        LootRow(item: item)
                     }
                 }
                 
@@ -61,10 +45,11 @@ class Inventory: ObservableObject {
             })
         }
     }
-    
-    
-    
-    #Preview {
-        ContentView()
-    }
-
+}
+        
+        
+        
+        #Preview {
+            ContentView()
+        }
+        
