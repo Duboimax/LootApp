@@ -9,9 +9,16 @@ import SwiftUI
 
 @main
 struct LootAppApp: App {
+    
+    @AppStorage("isOnboardingDone") var isOnboardingDone: Bool = false
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isOnboardingDone{
+                ContentView()
+            } else {
+                OnBoarding()
+            }
         }
     }
 }

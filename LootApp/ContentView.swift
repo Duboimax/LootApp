@@ -12,11 +12,16 @@ class Inventory: ObservableObject {
 
 struct ContentView: View {
     @ObservedObject var inventory = Inventory()
-    
+    @AppStorage("isOnboardingDone") var isOnboardingDone: Bool?
     @State var showAddItemView = false
     
     var body: some View {
         NavigationStack {
+            Button(action: {
+                            isOnboardingDone = false
+                        }, label: {
+                            Image(systemName: "xmark.square.fill")
+                        })
             List {
                 
                 ForEach(inventory.loot) { item in
