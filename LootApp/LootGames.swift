@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LootGames: View {
     var body: some View {
-        ScrollView {
+        ScrollView(.horizontal) {
             HStack(spacing: 10) {
                 
                 ForEach(availableGames) { oneGame in
