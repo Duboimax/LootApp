@@ -6,54 +6,42 @@ class Inventory: ObservableObject {
     func addItem(item: LootItem) {
         loot.append(item)
     }
+    func updateItem(item : LootItem) {
+        if let index = loot.firstIndex(where: {$0.id == item.id}) {
+            loot[index] = item
+        }
+    }
+    
+}
+
+enum LooterFeature {
+    case loot
+    case wishList
+    case profile
 }
 
 
-
 struct ContentView: View {
-    @ObservedObject var inventory = Inventory()
-    @AppStorage("isOnboardingDone") var isOnboardingDone: Bool?
-    @State var showAddItemView = false
+    @State private var selectedFeature: LooterFeature = .loot
     
     var body: some View {
-        NavigationStack {
-            Button(action: {
-                            isOnboardingDone = false
-                        }, label: {
-                            Image(systemName: "xmark.square.fill")
-                        })
-            List {
-                
-                ForEach(inventory.loot) { item in
-                    NavigationLink {
-                        LootDetailView(item: item) // On passe directement l'item à la vue
-                    } label: {
-                        LootRow(item: item)
-                    }
+        TabView(selection: $selectedFeature) {
+            LootView()
+                .tabItem {
+                    Label("Loot", systemImage: "bag.fill")
                 }
-                Section {
-                    LootGames()
-                } header: {
-                    Text("Jeux").textCase(/*@START_MENU_TOKEN@*/.uppercase/*@END_MENU_TOKEN@*/)
+                .tag(LooterFeature.loot)
+            WishListView()
+                .tabItem {
+                    Label("Wishlist", systemImage: "heart.fill")
                 }
-            }
-            
-            .sheet(isPresented: $showAddItemView, content: {
-                AddItemView(showAddItemView: $showAddItemView)
-                    .environmentObject(inventory)
-            })
-            .navigationBarTitle("👝 Inventaire") // Notre titre de page, choisissez le titre que vous voulez
-            .toolbar(content: { // La barre d'outil de notre page
-                ToolbarItem(placement: ToolbarItemPlacement.automatic) {
-                    Button(action: {
-                        showAddItemView.toggle()
-                    }, label: {
-                        Image(systemName: "plus.circle.fill")
-                    })
+                .tag(LooterFeature.wishList)
+            ProfileView()
+                .tabItem {
+                    Label("Profil", systemImage: "person.fill")
                 }
-            })
+                .tag(LooterFeature.profile)
         }
-        
     }
 }
 

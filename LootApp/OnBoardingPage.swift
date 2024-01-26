@@ -10,11 +10,13 @@ import SwiftUI
 struct OnBoardingPage: View {
     var page: Page
     @State private var isAnimating: Bool = false
+    @Binding var step: Int
     @AppStorage("isOnboardingDone") var isOnboardingDone: Bool?
     
     var body: some View {
         ZStack{
             VStack(spacing: 20){
+                Spacer()
                 Text(page.title)
                     .font(.custom("Verdana", fixedSize: 36))
                     .font(.largeTitle)
@@ -30,43 +32,29 @@ struct OnBoardingPage: View {
                 
                 
                 Text(page.description).multilineTextAlignment(.center)
-                
-                Button(action: {
-                    if page.buttonText == "Commencer" {
+                Spacer()
+                Button(step == allPage.count ? "Continuer" : "Commencer") {
+                    if step == allPage.count {
                         isOnboardingDone = true
+                    } else {
+                        step += 1
                     }
-                    else {
-                        print("la boutade")
-                    }
-                }) {
-                    HStack(spacing: 8) {
-                        Text(page.buttonText)
-                        
-                        Image(systemName: "arrow.right.circle")
-                            .imageScale(.large)
-                    }
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                    .background(
-                        page.color
-                    )
-                } //: BUTTONÒ
-                .accentColor(Color.white)
+                }
+                .foregroundColor(.white)
+                .padding(10)
+                .frame(width: 200)
+                .background(page.color)
                 .cornerRadius(20)
+                
+                Spacer()
+            }.onAppear {
+                withAnimation(.easeOut(duration: 0.5)) {
+                    isAnimating = true
+                }
             }
-            
-        }.onAppear {
-            withAnimation(.easeOut(duration: 0.5)) {
-                isAnimating = true
-            }
+            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+            .cornerRadius(20)
+            .padding(.horizontal, 20)
         }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .cornerRadius(20)
-        .padding(.horizontal, 20)
     }
-}
-
-
-#Preview {
-    OnBoardingPage(page: Page(title: "En un coup d'oeil", description: "Ajoutez facilement vos trouvailles et vos achats à votre collection personnelle", image: "gym.bag", color: Color.orange, buttonText: "Continuer"))
 }
